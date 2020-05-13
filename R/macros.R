@@ -10,10 +10,10 @@ trackAdd <- function() {
   docPos <- con$selection[[1]]$range$end
 
   # Add markup
-  rstudioapi::insertText("{++++}", id = con$id)
+  rstudioapi::insertText("{++  ++}", id = con$id)
 
   # move cursor
-  docPosNew <- docPos + c(0, 3)
+  docPosNew <- docPos + c(0, 4)
   rstudioapi::setCursorPosition(docPosNew, id = con$id)
 }
 
@@ -75,12 +75,12 @@ trackDelete <- function() {
   endPos <- con$selection[[1]]$range$end
 
   # Add markup
-  rstudioapi::insertText(location = startPos, "{--", id = con$id)
-  rstudioapi::insertText(location = endPos + c(0, 3), "--}",
+  rstudioapi::insertText(location = startPos, "{-- ", id = con$id)
+  rstudioapi::insertText(location = endPos + c(0, 4), " --}",
     id = con$id)
 
   # move cursor
-  startPosNew <- endPos + c(0, 6)
+  startPosNew <- endPos + c(0, 8)
   rstudioapi::setCursorPosition(startPosNew, id = con$id)
 }
 
